@@ -1,19 +1,19 @@
-## mongoimport -d imdb -c imdb_movies --type json --file movies.json –jsonArray C:\Users\Youcode\Desktop\movies.json
-## db.films.find({"year":{$eq:2010}}).pretty();
+``` 1 mongoimport -d imdb -c imdb_movies --type json --file movies.json –jsonArray C:\Users\Youcode\Desktop\movies.json ``` 
+``` 2 db.films.find({"year":{$eq:2010}}).pretty(); ``` 
 
-db.films.find({"year":{$eq:2009}}).count(); => 229
+``` 3 db.films.find({"year":{$eq:2009}}).count(); => 229 ``` 
 
-db.films.find({year:2008},{_id:-1,cast:-1,genres:-1}).pretty();
+``` 4 db.films.find({year:2008},{_id:-1,cast:-1,genres:-1}).pretty(); ``` 
 
-db.films.find({title:{$regex:/^A/}}).pretty();
+``` 5 db.films.find({title:{$regex:/^A/}}).pretty(); ``` 
 
-db.films.find({cast:"Timothy Gibbs",year:2011}).pretty()
+``` 6 db.films.find({cast:"Timothy Gibbs",year:2011}).pretty() ``` 
 
-db.films.find({genres:"Thriller",year:2011}).pretty()
+``` 7 db.films.find({genres:"Thriller",year:2011}).pretty() ``` 
 
-db.films.find({genres:"Thriller",year:2016}).sort({title:-1}).pretty()
+``` 8 db.films.find({genres:"Thriller",year:2016}).sort({title:-1}).pretty() ``` 
 
-`` db.films.bulkWrite(
+``` 2 db.films.bulkWrite(
 ]
   {  insertOne : 
      {
@@ -31,7 +31,8 @@ db.films.find({genres:"Thriller",year:2016}).sort({title:-1}).pretty()
          }
      }
  },
-
+``` 
+``` 
  {  insertOne : 
      {
          "document" :  { 
@@ -50,9 +51,9 @@ db.films.find({genres:"Thriller",year:2016}).sort({title:-1}).pretty()
  },
 ]
 );
-``
+``` 
 
-db.films.deleteMany({year:{$lt:2000}})
+```  10 db.films.deleteMany({year:{$lt:2000}}) ``` 
 
 db.films.updateMany({}, {$set: {"rating": []}})
 
