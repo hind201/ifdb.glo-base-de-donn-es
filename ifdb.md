@@ -60,10 +60,21 @@
 ```  12) db.films.updateMany({_id:ObjectId("60084a39dd80d2427818b6df"),_id:ObjectId("60084a39dd80d2427818b6dd")}, {$set: {rating:[ { by: "moi", rating: 4 }, {by:"collaborateur", rating: 5} ]}}) ``` 
  ## Créer un champ qui sera la moyenne de tous les ratings est appelé le : ar
 ``` 13) db.films.updateMany({}, {$set: {"ar":""}}) ``` 
+``` db.films.aggregate([{$addFields:{ar:{$avg:"$ratings".rating}}},{$out:"movies"}]); ```
  ## Renommer le champ créer précédémment à savoir : ar, pour devenir averageRating.
 ``` 14) db.films.updateMany({},{$rename:{"ar":"averageRating"}}) ``` 
  ## Créer un champs views qui sera un array qui contiendra des valeurs comme ci-après : ‘views ‘:[123444, 66855,78966]
-``` 15) .db.films.updateOne({_id:ObjectId("600a9bdc486faa09846928f8")}, {$set: {"views": [12344]}}); ```
-       ```  db.films.updateOne({_id:ObjectId("600a9bdc486faa09846928f9")}, {$set: {"views": [111222]}}); ``` 
+``` 15) db.films.updateOne({}, {$set: {"views": [12344]}}); ```
+``` 16) db.films.updateMany({_id:ObjectId("600a9bdc486faa09846928f8"),_id:ObjectId("600a9bdc486faa09846928f9")},{$set:{"views": "[123444, 66855,78966]"}}); ``` 
  ## Faites une mise à jour des films que vous avez insérer en renseignant les valeurs pour le tableau views.
 ``` 16) db.films.updateMany({_id:ObjectId("600a9bdc486faa09846928f8"),_id:ObjectId("600a9bdc486faa09846928f9")},{$set:{"views": "[a,b,c]"}}); ``` 
+ ## Créer un champs totalViews qui sera la somme du tableau view
+``` 17) db.film.aggregate([{$addFields:{$sum:"views"}},{{$out: "films"}]) ```
+## Créer un champs budget pour tous les documents et initialiser sa valeur à -1
+``` 18) db .films.updateManyaMany({},{$set:{"budget":-1}}) ```
+## Modifier les valeurs budget pour les films que vous avez ajouté.
+``` 19) db.films.bulkWrite([{}])```
+## Faites la mise à jour des films que vous avez ajouté précédemment.
+``` 20) ```
+## Faites un back up de votre base de données.
+``21) ``
