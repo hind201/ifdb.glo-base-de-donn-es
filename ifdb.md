@@ -15,8 +15,8 @@
    ## Afficher les films de type ‘Thriller’ réalisés en 2016 par ordre alphabétique inverse de leurs ‘title’
 ``` 8) db.films.find({genres:"Thriller",year:2016}).sort({title:-1}).pretty() ``` 
    ## Insérer deux film de votre choix dans la base en utilisant un BulkWrite ( pour le champs ‘year’, il doit être 2020)
-``` 9) db.films.bulkWrite(
- ]
+``` 
+9) db.films.bulkWrite(]
   {  insertOne : 
      {
          "document" :  { 
