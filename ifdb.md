@@ -63,7 +63,7 @@
  ## Renommer le champ créer précédémment à savoir : ar, pour devenir averageRating.
 ``` 14) db.films.updateMany({},{$rename:{"ar":"averageRating"}}) ``` 
  ## Créer un champs views qui sera un array qui contiendra des valeurs comme ci-après : ‘views ‘:[123444, 66855,78966]
-``` 15) .db.films.updateOne({_id:ObjectId("600a9bdc486faa09846928f8")}, {$set: {"views": [12344]}});/ 
-db.films.updateOne({_id:ObjectId("600a9bdc486faa09846928f9")}, {$set: {"views": [111222]}}); ``` 
+``` 15) .db.films.updateOne({_id:ObjectId("600a9bdc486faa09846928f8")}, {$set: {"views": [12344]}}); ```
+       ```  db.films.updateOne({_id:ObjectId("600a9bdc486faa09846928f9")}, {$set: {"views": [111222]}}); ``` 
  ## Faites une mise à jour des films que vous avez insérer en renseignant les valeurs pour le tableau views.
 ``` 16) db.films.updateMany({_id:ObjectId("600a9bdc486faa09846928f8"),_id:ObjectId("600a9bdc486faa09846928f9")},{$set:{"views": "[a,b,c]"}}); ``` 
